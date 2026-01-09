@@ -45,7 +45,7 @@ with the **same code**.
 
 This significantly reduces development time and effort, allowing developers to focus on building great features rather than dealing with platform-specific code.
 
-![Maui Bot](dev.png){aspect=AspectFill}
+![Maui Bot](dev.png){aspect=AspectFill horizontal=Center}
 
 
 ![Clipboard](clipboard.png){width=14 height=14 vertical=Center} Cool Stuff

@@ -575,6 +575,7 @@ public sealed class MarkdownView : ContentView
             textBuffer.Clear();
         }
 
+        var singleInline = block.Inline.Count() == 1; // avoid having multiple calls to Count
         foreach (var inline in block.Inline)
         {
             // If this inline is an image, add the image and flush preceding text
@@ -583,7 +584,8 @@ public sealed class MarkdownView : ContentView
                 flushText();
 
                 // Use Auto width for inline images to prevent expansion
-                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                // Check for single inline to allow full width and thereby Center alignment horizontally
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = singleInline ? GridLength.Star : GridLength.Auto });
                 var img = new Image
                 {
                     Aspect = ImageAspect,  // Set default aspect from bindable property
